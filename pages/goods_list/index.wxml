@@ -1,2 +1,34 @@
-<!--pages/goods_list/index.wxml-->
-<text>pages/goods_list/index.wxml</text>
+<search></search>
+<Tabs tabs="{{tabs}}" bindtabsItemChange="handleTabsItemChange">
+  <block wx:if="{{tabs[0].isActive}}">
+    <view class="first-tabs">
+      <navigator
+        class="goods-item"
+        wx:for="{{goodsList}}"
+        wx:key="goods_id"
+      >
+        <!-- 左侧 图片容器 -->
+        <view class="goods-img-wrapper">
+          <image
+            class=""
+            src="{{item.goods_small_logo}}"
+            mode="widthFix"
+          ></image>
+        </view>
+        <!-- 右侧 商品内容 -->
+        <view class="goods-info-wrapper">
+          <view class="goods-name">{{item.goods_name}}</view>
+          <view class="goods-price">{{item.goods_price}}</view>
+        </view>
+      </navigator>
+    </view>
+
+  </block>
+  <block wx:elif="{{tabs[1].isActive}}">
+    1
+  </block>
+  <block wx:elif="{{tabs[2].isActive}}">
+    2
+  </block>
+</Tabs>
+

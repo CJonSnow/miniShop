@@ -8,13 +8,17 @@
       </view>
     </scroll-view>
     <!-- 右侧内容 -->
-    <scroll-view scroll-y class="right-content">
+    <scroll-view scroll-top="{{scrollTop}}" scroll-y class="right-content">
       <view class="goods-group" wx:for="{{rightContent}}" wx:for-index="index1" wx:for-item="item1">
         <view class="goods-tiitle">
           {{item1.cat_name}}
         </view>
         <view class="goods-list">
-          <navigator wx:for="{{item1.children}}" wx:for-index="index2" wx:for-item="item2" wx:key="cat_id">
+          <navigator wx:for="{{item1.children}}" 
+                     wx:for-index="index2"
+                     wx:for-item="item2"
+                     wx:key="cat_id"
+                     url="/pages/goods_list/index?cid={{item2.cat_id}}">
             <image mode="widthFix" src="{{item2.cat_icon}}"></image>
             <view class="goods_name">{{item2.cat_name}}</view>
           </navigator>
